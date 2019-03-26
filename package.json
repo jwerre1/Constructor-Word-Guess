@@ -1,0 +1,22 @@
+{
+  "name": "constructor-word-guess",
+  "version": "1.0.0",
+  "description": "Constructor Word Guess Game",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwerre1/Constructor-Word-Guess.git"
+  },
+  "author": "Jordan Werre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jwerre1/Constructor-Word-Guess/issues"
+  },
+  "homepage": "https://github.com/jwerre1/Constructor-Word-Guess#readme",
+  "dependencies": {
+    "inquirer": "^6.2.2"
+  }
+}
