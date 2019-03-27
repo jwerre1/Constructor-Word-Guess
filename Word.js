@@ -19,10 +19,10 @@ var Word = function() {
         }
     };
     this.display = function() {
-        var displayWord = this.letterArray[0].dashes();
+        var displayWord = this.letterArray[0].toString();
         for (var i = 1; i < this.letterArray.length; i++) {
             if (typeof(this.letterArray[i]) === "object") {
-            displayWord += " " + this.letterArray[i].dashes();
+            displayWord += " " + this.letterArray[i].toString();
             }
             else {
                 displayWord += " " + this.letterArray[i];
@@ -37,10 +37,10 @@ var Word = function() {
     }
 }
 
-var test = new Word();
-test.addLetter("STAR WARS IV : A NEW HOPE");
-console.log(test.letterArray);
-console.log(test.display());
+// var test = new Word();
+// test.addLetter("STAR WARS IV : A NEW HOPE");
+// console.log(test.letterArray);
+// console.log(test.display());
 
 
 

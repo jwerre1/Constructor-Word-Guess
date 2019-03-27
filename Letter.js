@@ -1,7 +1,7 @@
 var Letter = function(character) {
     this.character = character;
     this.guessed = false;
-    this.dashes = function() {
+    this.toString = function() {
         if (this.guessed === true) {
             return this.character
         }
@@ -12,7 +12,6 @@ var Letter = function(character) {
     this.check = function(x) {
         if (x === this.character) {
             this.guessed = true;
-            console.log("Guess Found!");
         }
     }
 }
