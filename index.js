@@ -1,7 +1,7 @@
 var Word = require("./Word");
 var inquirer = require("inquirer");
-var wordBank = ["TEST", "OTHER: TEST"]
-// var wordBank = ["THE GODFATHER", "SCHINDLER'S LIST", "THE LORD OF THE RINGS - THE RETURN OF THE KING", "FIGHT CLUB", "THE GOOD, THE BAD & THE UGLY"]
+
+var wordBank = ["THE GODFATHER", "SCHINDLER'S LIST", "THE LORD OF THE RINGS - THE RETURN OF THE KING", "FIGHT CLUB", "THE GOOD, THE BAD & THE UGLY"]
 
 // shuffle the wordBank into a random order (found on Stack Overflow)
 function shuffle(array) {
@@ -153,7 +153,6 @@ function wrongGuess() {
 }
 
 function gameComplete() {
-    // console.log("\n" + gameWord.display() + "\n\n");
     console.log("--------\nYOU WON!!!\n\nGAME OVER!!!\n--------\n");
 }
 
