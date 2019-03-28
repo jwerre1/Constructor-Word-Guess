@@ -1,7 +1,7 @@
 var Word = require("./Word");
 var inquirer = require("inquirer");
-
-var wordBank = ["THE GODFATHER", "SCHINDLER'S LIST", "THE LORD OF THE RINGS - THE RETURN OF THE KING", "FIGHT CLUB", "THE GOOD, THE BAD & THE UGLY"]
+var wordBank = ["TEST", "OTHER: TEST"]
+// var wordBank = ["THE GODFATHER", "SCHINDLER'S LIST", "THE LORD OF THE RINGS - THE RETURN OF THE KING", "FIGHT CLUB", "THE GOOD, THE BAD & THE UGLY"]
 
 // shuffle the wordBank into a random order (found on Stack Overflow)
 function shuffle(array) {
@@ -31,6 +31,7 @@ var gameWord = new Word();
 // console.log(test.display());
 var round = 0;
 var wrongCount = 5;
+var dashfill = "_"
 
 function startGame() {
     console.log("\n--------\nLet's Begin\n--------\n");
@@ -60,7 +61,14 @@ function startGame() {
 
 function nextWord() {
     // gameWord.addLetter(wordBank[0]);
-    console.log("\n" + gameWord.display() + "\n");
+    gameWord = new Word();
+    round += 1;
+    wrongCount = 5;
+    gameWord.addLetter(wordBank[round]);
+    console.log("Correct!!!\n");
+    console.log("You got it right! Next word!\n");
+    console.log(gameWord.display() + "\n\n");
+    
     inquirer
     .prompt([
         {
@@ -84,6 +92,7 @@ function nextWord() {
 function correctGuess() {
     // gameWord.addLetter(wordBank[0]);
     console.log("\n" + gameWord.display() + "\n\n");
+    if (gameWord.display().includes(dashfill)) {
     console.log("Correct!!!\n")
     inquirer
     .prompt([
@@ -103,6 +112,13 @@ function correctGuess() {
             wrongGuess();
         }
     })
+}
+else if (round < wordBank.length - 1) {
+    nextWord();
+}
+else {
+    gameComplete();
+}
 }
 
 function wrongGuess() {
@@ -131,8 +147,14 @@ function wrongGuess() {
         })
     }
     else {
+        console.log("\nWrong!!!\n\n" + wrongCount + " guesses remaining")
         console.log("\n--------\nGAME OVER\n--------\n");
     }
+}
+
+function gameComplete() {
+    // console.log("\n" + gameWord.display() + "\n\n");
+    console.log("--------\nYOU WON!!!\n\nGAME OVER!!!\n--------\n");
 }
 
 startGame();
