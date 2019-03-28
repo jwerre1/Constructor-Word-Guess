@@ -31,8 +31,10 @@ var Word = function() {
         return displayWord;
     };
     this.checkGuess = function(y) {
-        for (var j = 0; this.letterArray.length; j++) {
-            this.letterArray[j].check(y);
+        for (var j = 0; j < this.letterArray.length; j++) {
+            if (typeof(this.letterArray[j]) === "object") {
+                this.letterArray[j].check(y);
+            }
         }
     }
 }
