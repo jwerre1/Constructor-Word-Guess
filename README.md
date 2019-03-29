@@ -24,7 +24,7 @@ If the player is unable to guess the movie title, they are told that the game is
 
 An example the two game plays (one losing, another winning) can be seen in the video linked below.
 
-[![Movie Guess Game](https://i9.ytimg.com/vi/6SxSC3SbJ4A/2.jpg?sqp=CODS9eQF&rs=AOn4CLDkOFsTmwuEWHn7KR39DCbrSxDFxA)](https://youtu.be/6SxSC3SbJ4A)
+[![Movie Guess Game](/images/thumbnail.jpeg)](https://youtu.be/6SxSC3SbJ4A)
 
 ## Built With
 
