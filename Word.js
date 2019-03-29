@@ -1,6 +1,5 @@
 var Letter = require("./Letter.js");
 
-// make "if else" so that if the character in a word is a space, it just pushes the space
 var Word = function() {
     this.letterArray = [];
     this.addLetter = function(input) {
@@ -38,26 +37,5 @@ var Word = function() {
         }
     }
 }
-
-// var test = new Word();
-// test.addLetter("STAR WARS IV : A NEW HOPE");
-// console.log(test.letterArray);
-// console.log(test.display());
-
-
-
-
-// var wordOne = ["J", "A", "V", "A", "S", "C", "R", "I", "P", "T"];
-// var wordArray = [];
-
-// var genWordArray = function(x) {
-//     for (i = 0; i < x.length; i++) {
-//         var newLetter = new LetterJS.Letter(x[i]);
-//         wordArray.push(newLetter);
-//     }
-// }
-
-// genWordArray(wordOne);
-// console.log(wordArray);
 
 module.exports = Word;

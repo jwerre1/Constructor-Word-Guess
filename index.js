@@ -27,8 +27,6 @@ function shuffle(array) {
 shuffle(wordBank);
 
 var gameWord = new Word();
-// test.addLetter(wordBank[0]);
-// console.log(test.display());
 var round = 0;
 var wrongCount = 5;
 var dashfill = "_"
@@ -36,7 +34,6 @@ var dashfill = "_"
 function startGame() {
     console.log("\n-----------\nLet's Begin\n-----------\n");
     gameWord.addLetter(wordBank[round]);
-    // console.log(gameWord.letterArray.length);
     console.log(gameWord.display() + "\n");
     inquirer
     .prompt([
@@ -46,8 +43,6 @@ function startGame() {
         }
     ]).then(function(answer) {
         var answerUpper = answer.guess.toUpperCase();
-        // console.log(answerUpper);
-        // var n = alphabet.includes(splitWord[h])
         if (wordBank[round].includes(answerUpper)){
             gameWord.checkGuess(answerUpper);
             correctGuess();
@@ -60,7 +55,6 @@ function startGame() {
 }
 
 function nextWord() {
-    // gameWord.addLetter(wordBank[0]);
     gameWord = new Word();
     round += 1;
     wrongCount = 5;
@@ -77,8 +71,6 @@ function nextWord() {
         }
     ]).then(function(answer) {
         var answerUpper = answer.guess.toUpperCase();
-        // console.log(answerUpper);
-        // var n = alphabet.includes(splitWord[h])
         if (wordBank[round].includes(answerUpper)){
             gameWord.checkGuess(answerUpper);
             correctGuess();
@@ -90,8 +82,8 @@ function nextWord() {
 }
 
 function correctGuess() {
-    // gameWord.addLetter(wordBank[0]);
     console.log("\n" + gameWord.display() + "\n\n");
+    // if the word is incomplete...
     if (gameWord.display().includes(dashfill)) {
     console.log("Correct!!!\n")
     inquirer
@@ -102,8 +94,6 @@ function correctGuess() {
         }
     ]).then(function(answer) {
         var answerUpper = answer.guess.toUpperCase();
-        // console.log(answerUpper);
-        // var n = alphabet.includes(splitWord[h])
         if (wordBank[round].includes(answerUpper)){
             gameWord.checkGuess(answerUpper);
             correctGuess();
@@ -113,17 +103,19 @@ function correctGuess() {
         }
     })
 }
+// if there are more words remaining.
 else if (round < wordBank.length - 1) {
     nextWord();
 }
+// if the player has completed the game.
 else {
-    gameComplete();
+    console.log("------------\nYOU WON!!!\n\nGAME OVER!!!\n------------\n");
 }
 }
 
 function wrongGuess() {
-    // gameWord.addLetter(wordBank[0]);
     wrongCount -= 1;
+    // if the player has not lost.
     if (wrongCount > 0) {
         console.log("\n" + gameWord.display() + "\n\n");
         console.log("Wrong!!!\n\n" + wrongCount + " guesses remaining\n")
@@ -135,8 +127,6 @@ function wrongGuess() {
             }
         ]).then(function(answer) {
             var answerUpper = answer.guess.toUpperCase();
-            // console.log(answerUpper);
-            // var n = alphabet.includes(splitWord[h])
             if (wordBank[round].includes(answerUpper)){
                 gameWord.checkGuess(answerUpper);
                 correctGuess();
@@ -146,15 +136,12 @@ function wrongGuess() {
             }
         })
     }
+    // if the player's lost.
     else {
         console.log("\n" + gameWord.display() + "\n\n");
         console.log("Wrong!!!\n\n" + wrongCount + " guesses remaining")
         console.log("\n---------\nGAME OVER\n---------\n");
     }
-}
-
-function gameComplete() {
-    console.log("------------\nYOU WON!!!\n\nGAME OVER!!!\n------------\n");
 }
 
 // run game
