@@ -1,7 +1,7 @@
 var Word = require("./Word");
 var inquirer = require("inquirer");
 
-var wordBank = ["THE GODFATHER", "SCHINDLER'S LIST", "THE LORD OF THE RINGS - THE RETURN OF THE KING", "FIGHT CLUB", "THE GOOD, THE BAD & THE UGLY"]
+var wordBank = ["THE GODFATHER", "WALL-E", "SCHINDLER'S LIST", "E.T. THE EXTRA-TERRESTRIAL", "FIGHT CLUB", "THE GOOD, THE BAD & THE UGLY"]
 
 // shuffle the wordBank into a random order (found on Stack Overflow)
 function shuffle(array) {
@@ -34,7 +34,7 @@ var wrongCount = 5;
 var dashfill = "_"
 
 function startGame() {
-    console.log("\n--------\nLet's Begin\n--------\n");
+    console.log("\n-----------\nLet's Begin\n-----------\n");
     gameWord.addLetter(wordBank[round]);
     // console.log(gameWord.letterArray.length);
     console.log(gameWord.display() + "\n");
@@ -147,13 +147,15 @@ function wrongGuess() {
         })
     }
     else {
-        console.log("\nWrong!!!\n\n" + wrongCount + " guesses remaining")
-        console.log("\n--------\nGAME OVER\n--------\n");
+        console.log("\n" + gameWord.display() + "\n\n");
+        console.log("Wrong!!!\n\n" + wrongCount + " guesses remaining")
+        console.log("\n---------\nGAME OVER\n---------\n");
     }
 }
 
 function gameComplete() {
-    console.log("--------\nYOU WON!!!\n\nGAME OVER!!!\n--------\n");
+    console.log("------------\nYOU WON!!!\n\nGAME OVER!!!\n------------\n");
 }
 
+// run game
 startGame();
