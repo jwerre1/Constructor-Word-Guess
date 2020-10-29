@@ -1,7 +1,7 @@
-var Word = require("./Word");
-var inquirer = require("inquirer");
+const Word = require("./Word");
+const inquirer = require("inquirer");
 
-var wordBank = [
+const wordBank = [
   "THE GODFATHER",
   "WALL-E",
   "SCHINDLER'S LIST",
@@ -12,7 +12,7 @@ var wordBank = [
 
 // shuffle the wordBank into a random order (found on Stack Overflow)
 function shuffle(array) {
-  var currentIndex = array.length,
+  let currentIndex = array.length,
     temporaryValue,
     randomIndex;
 
@@ -39,7 +39,7 @@ var round = 0;
 var wrongCount = 5;
 var dashfill = "_";
 
-function prompt() {
+const prompt = () => {
   inquirer
     .prompt([
       {
@@ -47,7 +47,7 @@ function prompt() {
         message: "Guess a letter! ",
       },
     ])
-    .then(function (answer) {
+    .then(answer => {
       var answerUpper = answer.guess.toUpperCase();
       if (wordBank[round].includes(answerUpper)) {
         gameWord.checkGuess(answerUpper);
@@ -58,14 +58,14 @@ function prompt() {
     });
 }
 
-function startGame() {
+const startGame = () => {
   console.log("\n-----------\nLet's Begin\n-----------\n");
   gameWord.addLetter(wordBank[round]);
   console.log(gameWord.display() + "\n");
   prompt();
 }
 
-function nextWord() {
+const nextWord = () => {
   gameWord = new Word();
   round += 1;
   wrongCount = 5;
@@ -76,7 +76,7 @@ function nextWord() {
   prompt();
 }
 
-function correctGuess() {
+const correctGuess = () => {
   console.log("\n" + gameWord.display() + "\n\n");
   // if the word is incomplete...
   if (gameWord.display().includes(dashfill)) {
@@ -93,7 +93,7 @@ function correctGuess() {
   }
 }
 
-function wrongGuess() {
+const wrongGuess = () => {
   wrongCount -= 1;
   console.log("\n" + gameWord.display() + "\n\n");
   console.log("Wrong!!!\n\n" + wrongCount + " guesses remaining\n");

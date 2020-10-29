@@ -1,4 +1,4 @@
-var Letter = function (character) {
+const Letter = function (character) {
   this.character = character;
   this.guessed = false;
   this.toString = function () {

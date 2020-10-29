@@ -1,8 +1,8 @@
-var Letter = require("./Letter.js");
+const Letter = require("./Letter.js");
 
-var Word = function () {
+const Word = function () {
   this.letterArray = [];
-  this.addLetter = function (input) {
+  this.addLetter = input => {
     var splitWord = input.split("");
     var alphabet = [
       "A",
@@ -32,16 +32,16 @@ var Word = function () {
       "Y",
       "Z",
     ];
-    for (var h = 0; h < splitWord.length; h++) {
-      var n = alphabet.includes(splitWord[h]);
+    for (let h = 0; h < splitWord.length; h++) {
+      let n = alphabet.includes(splitWord[h]);
 
       if (n === true) this.letterArray.push(new Letter(splitWord[h]));
       else this.letterArray.push(splitWord[h]);
     }
   };
-  this.display = function () {
-    var displayWord = this.letterArray[0].toString();
-    for (var i = 1; i < this.letterArray.length; i++) {
+  this.display = () => {
+    let displayWord = this.letterArray[0].toString();
+    for (let i = 1; i < this.letterArray.length; i++) {
       if (typeof this.letterArray[i] === "object") {
         displayWord += " " + this.letterArray[i].toString();
       } else {
@@ -50,7 +50,7 @@ var Word = function () {
     }
     return displayWord;
   };
-  this.checkGuess = function (y) {
+  this.checkGuess = y => {
     for (var j = 0; j < this.letterArray.length; j++) {
       if (typeof this.letterArray[j] === "object") {
         this.letterArray[j].check(y);
